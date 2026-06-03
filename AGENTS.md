@@ -2,6 +2,16 @@
 
 This repository is intended to be used heavily by AI coding agents. Follow these rules unless a human explicitly overrides them.
 
+## Read Order
+
+1. `docs/HARNESS.md`
+2. `docs/ai/AI_CODING_GUIDE.md`
+3. `docs/ai/FEATURE_INTAKE.md`
+4. `docs/ai/VALIDATION_MATRIX.md`
+5. `docs/ai/PATTERNS.md`
+6. `docs/ai/ANTI_PATTERNS.md`
+7. `docs/ai/CHECKLIST.md`
+
 ## Stack
 
 - Flutter + Dart
@@ -119,12 +129,10 @@ For secure values, prefer `secureStorageRepositoryProvider` over directly using 
 Before finishing code changes, run:
 
 ```bash
-flutter gen-l10n
-dart run build_runner build --delete-conflicting-outputs
-dart format .
-dart analyze --fatal-infos --fatal-warnings
-flutter test
+scripts/quality_check.sh
 ```
+
+If Flutter/Dart is unavailable, report the blocker and include the commands that should be run locally.
 
 ## Do Not Copy From Example Base Blindly
 

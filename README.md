@@ -31,12 +31,19 @@ Rule: UI → controller/usecase → repository contract → repository implement
 ## Commands
 
 ```bash
+scripts/generate.sh
+scripts/quality_check.sh
+flutter run
+```
+
+Expanded quality gate:
+
+```bash
 flutter pub get
-dart run build_runner build --delete-conflicting-outputs
-dart format .
+scripts/generate.sh
+dart format --set-exit-if-changed .
 dart analyze --fatal-infos --fatal-warnings
 flutter test
-flutter run
 ```
 
 ## AI Coding
@@ -44,7 +51,11 @@ flutter run
 This base is designed for AI-assisted development. Read these files before extending it:
 
 - `AGENTS.md` - repository rules for AI coding agents
+- `CLAUDE.md` - Claude Code focused instructions
+- `docs/HARNESS.md` - lightweight harness workflow
 - `docs/ai/AI_CODING_GUIDE.md` - practical implementation guide
+- `docs/ai/FEATURE_INTAKE.md` - task/risk classification
+- `docs/ai/VALIDATION_MATRIX.md` - required validation proof
 - `docs/development/FEATURE_GENERATOR.md` - feature generator usage
 - `docs/development/ENVIRONMENTS.md` - staging/prod run and build commands
 

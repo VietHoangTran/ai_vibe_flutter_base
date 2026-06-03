@@ -336,31 +336,15 @@ Lợi ích:
 
 ---
 
-## 5. Optional agent config files
+## 5. Claude Code config
 
-Nếu dùng Cursor/Claude Code/Gemini CLI, nên thêm:
+Vì project này dùng Claude Code để code, chỉ cần thêm:
 
 ```text
-.cursorrules
 CLAUDE.md
-GEMINI.md
 ```
 
-### 5.1. `.cursorrules` mẫu
-
-```text
-You are working in AI Vibe Flutter Base.
-
-Always follow AGENTS.md.
-Use Riverpod, GoRouter, Dio, and feature-first Clean Architecture.
-Never introduce GetX, GetIt, BLoC, another router, or another HTTP client unless explicitly approved.
-Never edit generated files manually.
-Always use localization for user-facing text.
-Prefer tools/feature_cli.dart for new features.
-Before final answer, run scripts/quality_check.sh or report the blocker.
-```
-
-### 5.2. `CLAUDE.md` mẫu
+### 5.1. `CLAUDE.md` mẫu
 
 ```md
 # CLAUDE.md
@@ -496,9 +480,8 @@ Nếu triển khai Harness-lite, nên đi theo thứ tự:
 13. `docs/decisions/0003-ai-harness-lite.md`
 14. `scripts/generate.sh`
 15. `scripts/quality_check.sh`
-16. `.cursorrules`
-17. `CLAUDE.md`
-18. `.github/pull_request_template.md`
+16. `CLAUDE.md`
+17. `.github/pull_request_template.md`
 
 ---
 
