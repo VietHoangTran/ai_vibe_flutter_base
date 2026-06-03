@@ -3,6 +3,9 @@
   "appTitle": "AI Vibe Flutter Base",
   "homeTitle": "Trang chủ",
   "loginTitle": "Đăng nhập",
+  "emailLabel": "Email",
+  "passwordLabel": "Mật khẩu",
+  "signIn": "Đăng nhập",
   "welcomeUser": "Xin chào, {name}",
   "@welcomeUser": {
     "placeholders": {

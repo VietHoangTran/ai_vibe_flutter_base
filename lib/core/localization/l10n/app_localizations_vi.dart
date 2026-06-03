@@ -18,6 +18,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get loginTitle => 'Đăng nhập';
 
   @override
+  String get emailLabel => 'Email';
+
+  @override
+  String get passwordLabel => 'Mật khẩu';
+
+  @override
+  String get signIn => 'Đăng nhập';
+
+  @override
   String welcomeUser(String name) {
     return 'Xin chào, $name';
   }

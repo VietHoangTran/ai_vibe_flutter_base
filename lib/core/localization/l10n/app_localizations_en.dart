@@ -18,6 +18,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginTitle => 'Login';
 
   @override
+  String get emailLabel => 'Email';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
   String welcomeUser(String name) {
     return 'Welcome, $name';
   }

@@ -3,6 +3,9 @@
   "appTitle": "AI Vibe Flutter Base",
   "homeTitle": "Home",
   "loginTitle": "Login",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "signIn": "Sign in",
   "welcomeUser": "Welcome, {name}",
   "@welcomeUser": {
     "placeholders": {

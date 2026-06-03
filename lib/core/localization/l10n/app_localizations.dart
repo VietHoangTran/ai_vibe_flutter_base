@@ -118,6 +118,24 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get loginTitle;
 
+  /// No description provided for @emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailLabel;
+
+  /// No description provided for @passwordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordLabel;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
   /// No description provided for @welcomeUser.
   ///
   /// In en, this message translates to:

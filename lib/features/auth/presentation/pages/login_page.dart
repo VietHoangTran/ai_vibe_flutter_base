@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/localization/app_localizations_x.dart';
 import '../controllers/auth_controller.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -27,7 +28,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final isLoading = auth.isLoading;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: Text(context.l10n.loginTitle)),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 420),
@@ -37,20 +38,24 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'AI Vibe Flutter Base',
+                  context.l10n.appTitle,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 24),
                 TextField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(
+                    labelText: context.l10n.emailLabel,
+                  ),
                 ),
                 const SizedBox(height: 12),
                 TextField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: InputDecoration(
+                    labelText: context.l10n.passwordLabel,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
@@ -69,7 +74,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             dimension: 18,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : const Text('Sign in'),
+                        : Text(context.l10n.signIn),
                   ),
                 ),
                 if (auth.hasError) ...[

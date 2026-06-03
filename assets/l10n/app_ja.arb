@@ -3,6 +3,9 @@
   "appTitle": "AI Vibe Flutter Base",
   "homeTitle": "ホーム",
   "loginTitle": "ログイン",
+  "emailLabel": "メールアドレス",
+  "passwordLabel": "パスワード",
+  "signIn": "ログイン",
   "welcomeUser": "ようこそ、{name}",
   "@welcomeUser": {
     "placeholders": {
