@@ -68,6 +68,8 @@ This base is designed for AI-assisted development. Read these files before exten
 - `CLAUDE.md` - Claude Code focused instructions
 - `docs/HARNESS.md` - lightweight harness workflow
 - `docs/ai/AI_CODING_GUIDE.md` - practical implementation guide
+- `docs/ai/TASK_PLAYBOOK.md` - tactical checklists for common agent tasks
+- `docs/CODEMAP.md` - quick map of app architecture and key files
 - `docs/ai/FEATURE_INTAKE.md` - task/risk classification
 - `docs/ai/VALIDATION_MATRIX.md` - required validation proof
 - `docs/development/FEATURE_GENERATOR.md` - feature generator usage

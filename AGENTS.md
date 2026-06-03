@@ -6,11 +6,12 @@ This repository is intended to be used heavily by AI coding agents. Follow these
 
 1. `docs/HARNESS.md`
 2. `docs/ai/AI_CODING_GUIDE.md`
-3. `docs/ai/FEATURE_INTAKE.md`
-4. `docs/ai/VALIDATION_MATRIX.md`
-5. `docs/ai/PATTERNS.md`
-6. `docs/ai/ANTI_PATTERNS.md`
-7. `docs/ai/CHECKLIST.md`
+3. `docs/ai/TASK_PLAYBOOK.md`
+4. `docs/ai/FEATURE_INTAKE.md`
+5. `docs/ai/VALIDATION_MATRIX.md`
+6. `docs/ai/PATTERNS.md`
+7. `docs/ai/ANTI_PATTERNS.md`
+8. `docs/ai/CHECKLIST.md`
 
 ## Stack
 

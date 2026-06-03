@@ -11,11 +11,12 @@ This is AI Vibe Flutter Base: a mobile-only Flutter base designed for AI vibe co
 1. `AGENTS.md`
 2. `docs/HARNESS.md`
 3. `docs/ai/AI_CODING_GUIDE.md`
-4. `docs/ai/FEATURE_INTAKE.md`
-5. `docs/ai/VALIDATION_MATRIX.md`
-6. `docs/ai/PATTERNS.md`
-7. `docs/ai/ANTI_PATTERNS.md`
-8. `docs/ai/CHECKLIST.md`
+4. `docs/ai/TASK_PLAYBOOK.md`
+5. `docs/ai/FEATURE_INTAKE.md`
+6. `docs/ai/VALIDATION_MATRIX.md`
+7. `docs/ai/PATTERNS.md`
+8. `docs/ai/ANTI_PATTERNS.md`
+9. `docs/ai/CHECKLIST.md`
 
 ## Common Commands
 
