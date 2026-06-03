@@ -69,6 +69,7 @@ dev_dependencies:
   mocktail: ^1.0.5
   flutter_gen_runner: ^5.10.0
   flutter_native_splash: ^2.4.6
+  flutter_launcher_icons: ^0.14.4
 
 flutter_gen:
   output: lib/core/gen/
@@ -82,6 +83,19 @@ flutter_native_splash:
     color: "#FFFFFF"
     color_dark: "#111827"
     image: assets/images/splash.png
+
+# App launcher icon. To update the icon, replace
+# assets/images/icon_app_launcher.png (1024x1024 recommended) keeping the
+# same filename, then run scripts/generate_icons.sh.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/icon_app_launcher.png"
+  min_sdk_android: 21
+  # Adaptive icon for Android 8.0+ (uses the same source artwork).
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/icon_app_launcher.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

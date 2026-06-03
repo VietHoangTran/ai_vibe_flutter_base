@@ -47,6 +47,19 @@ dart analyze --fatal-infos --fatal-warnings
 flutter test
 ```
 
+## App icon & splash
+
+Both are generated from a single source image each. To change one, replace its
+source image (keep the same filename), then run the matching script.
+
+```bash
+# Icon: replace assets/images/icon_app_launcher.png (1024x1024 recommended)
+scripts/generate_icons.sh
+
+# Splash: replace assets/images/splash.png (transparent PNG works best)
+scripts/generate_splash.sh
+```
+
 ## AI Coding
 
 This base is designed for AI-assisted development. Read these files before extending it:
