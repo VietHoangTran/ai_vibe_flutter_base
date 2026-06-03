@@ -4,13 +4,14 @@ Base Flutter cho AI coding và vibe coding: Clean Architecture theo feature-firs
 
 ## Stack
 
-- Flutter 3.44.1 / Dart 3.12.1
-- State management + DI: `flutter_riverpod` + `riverpod_annotation`
-- Navigation: `go_router`
-- Network: `dio` + `retrofit`
+- Flutter 3.45 / Dart 3.13 (SDK constraint `>=3.12.1`)
+- State management + DI: `flutter_riverpod` ^3.3.1 + `riverpod_annotation` ^4.0.2
+- Navigation: `go_router` ^17.3.0
+- Network: `dio` ^5.9.2 + `retrofit` ^4.9.2
 - Immutable models: `freezed` + `json_serializable`
-- Local storage: `shared_preferences`, `flutter_secure_storage`
-- Lint: `very_good_analysis`
+- Local storage: `shared_preferences` ^2.5.5, `flutter_secure_storage` ^10.3.1
+- In-app update: `upgrader` ^13.5.0
+- Lint: `very_good_analysis` ^10.2.0
 
 ## Architecture
 
