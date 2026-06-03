@@ -58,10 +58,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   child: FilledButton(
                     onPressed: isLoading
                         ? null
-                        : () => ref.read(authControllerProvider.notifier).signIn(
-                              email: _emailController.text.trim(),
-                              password: _passwordController.text,
-                            ),
+                        : () => ref
+                              .read(authControllerProvider.notifier)
+                              .signIn(
+                                email: _emailController.text.trim(),
+                                password: _passwordController.text,
+                              ),
                     child: isLoading
                         ? const SizedBox.square(
                             dimension: 18,
@@ -74,7 +76,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   const SizedBox(height: 12),
                   Text(
                     auth.error.toString(),
-                    style: TextStyle(color: Theme.of(context).colorScheme.error),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.error,
+                    ),
                   ),
                 ],
               ],

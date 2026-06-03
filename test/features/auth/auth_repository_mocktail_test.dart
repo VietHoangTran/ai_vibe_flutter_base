@@ -10,7 +10,8 @@ void main() {
     final repository = MockAuthRepository();
 
     when(repository.currentUser).thenAnswer(
-      (_) async => const AppUser(id: '1', email: 'demo@example.com', name: 'Demo'),
+      (_) async =>
+          const AppUser(id: '1', email: 'demo@example.com', name: 'Demo'),
     );
 
     final user = await repository.currentUser();

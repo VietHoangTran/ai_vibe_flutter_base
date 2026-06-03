@@ -18,7 +18,8 @@ class HomePage extends ConsumerWidget {
         actions: [
           IconButton(
             tooltip: context.l10n.signOut,
-            onPressed: () => ref.read(authControllerProvider.notifier).signOut(),
+            onPressed: () =>
+                ref.read(authControllerProvider.notifier).signOut(),
             icon: const Icon(Icons.logout),
           ),
         ],

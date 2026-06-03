@@ -3,7 +3,8 @@ import 'package:dio/dio.dart';
 import '../error/app_exception.dart';
 
 NetworkException mapDioException(DioException error) {
-  final message = _extractMessage(error.response?.data) ?? _defaultMessage(error);
+  final message =
+      _extractMessage(error.response?.data) ?? _defaultMessage(error);
 
   return NetworkException(
     message,

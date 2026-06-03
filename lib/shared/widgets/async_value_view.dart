@@ -19,9 +19,10 @@ class AsyncValueView<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return value.when(
       data: data,
-      loading: () => loading ?? const Center(child: CircularProgressIndicator()),
-      error: (err, stackTrace) => error?.call(err, stackTrace) ??
-          Center(child: Text('Error: $err')),
+      loading: () =>
+          loading ?? const Center(child: CircularProgressIndicator()),
+      error: (err, stackTrace) =>
+          error?.call(err, stackTrace) ?? Center(child: Text('Error: $err')),
     );
   }
 }

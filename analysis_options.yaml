@@ -1,13 +1,32 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+# include: package:flutter_lints/flutter.yaml
 include: package:very_good_analysis/analysis_options.yaml
+
+
 
 analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - "lib/core/localization/l10n/**"
+  errors:
+    # very_good_analysis 10.2.0 references lint rules that the newer Dart 3.13+
+    # analyzer no longer recognizes (e.g. simplify_variable_pattern). Silence the
+    # included-file warning until very_good_analysis ships an analyzer-13 build.
+    included_file_warning: ignore
 
 linter:
   rules:
     public_member_api_docs: false
+    one_member_abstracts: false
     always_use_package_imports: false
     directives_ordering: false
     avoid_redundant_argument_values: false

@@ -7,18 +7,25 @@ class AuthRepositoryImpl implements AuthRepository {
   const AuthRepositoryImpl({
     required AuthLocalDataSource localDataSource,
     required AuthRemoteDataSource remoteDataSource,
-  })  : _localDataSource = localDataSource,
-        _remoteDataSource = remoteDataSource;
+  }) : _localDataSource = localDataSource,
+       _remoteDataSource = remoteDataSource;
 
   final AuthLocalDataSource _localDataSource;
   final AuthRemoteDataSource _remoteDataSource;
 
   @override
-  Future<AppUser?> currentUser() async => (await _localDataSource.readUser())?.toEntity();
+  Future<AppUser?> currentUser() async =>
+      (await _localDataSource.readUser())?.toEntity();
 
   @override
-  Future<AppUser> signIn({required String email, required String password}) async {
-    final user = await _remoteDataSource.signIn(email: email, password: password);
+  Future<AppUser> signIn({
+    required String email,
+    required String password,
+  }) async {
+    final user = await _remoteDataSource.signIn(
+      email: email,
+      password: password,
+    );
     await _localDataSource.saveUser(user);
     return user.toEntity();
   }

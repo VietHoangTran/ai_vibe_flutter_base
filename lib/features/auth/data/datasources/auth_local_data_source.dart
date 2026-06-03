@@ -24,7 +24,10 @@ class AuthLocalDataSource {
 
   Future<void> saveUser(UserModel user) async {
     try {
-      await _secureStorage.write(key: _userKey, value: jsonEncode(user.toJson()));
+      await _secureStorage.write(
+        key: _userKey,
+        value: jsonEncode(user.toJson()),
+      );
     } catch (error) {
       throw StorageException('Could not save local user', cause: error);
     }

@@ -8,7 +8,10 @@ class AuthRemoteDataSource {
 
   final Dio _dio;
 
-  Future<UserModel> signIn({required String email, required String password}) async {
+  Future<UserModel> signIn({
+    required String email,
+    required String password,
+  }) async {
     // Replace this mock with your real endpoint, for example:
     // final response = await _dio.post<Map<String, dynamic>>(
     //   '/auth/login',

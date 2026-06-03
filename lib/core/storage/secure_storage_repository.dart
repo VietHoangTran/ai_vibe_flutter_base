@@ -19,7 +19,8 @@ final class FlutterSecureStorageRepository implements SecureStorageRepository {
   Future<String?> read(String key) => _storage.read(key: key);
 
   @override
-  Future<void> write(String key, String value) => _storage.write(key: key, value: value);
+  Future<void> write(String key, String value) =>
+      _storage.write(key: key, value: value);
 
   @override
   Future<void> delete(String key) => _storage.delete(key: key);
@@ -28,6 +29,8 @@ final class FlutterSecureStorageRepository implements SecureStorageRepository {
   Future<void> deleteAll() => _storage.deleteAll();
 }
 
-final secureStorageRepositoryProvider = Provider<SecureStorageRepository>((ref) {
+final secureStorageRepositoryProvider = Provider<SecureStorageRepository>((
+  ref,
+) {
   return FlutterSecureStorageRepository(ref.watch(secureStorageProvider));
 });

@@ -16,7 +16,9 @@ void main() {
     );
     addTearDown(container.dispose);
 
-    await container.read(localeControllerProvider.notifier).setLocale(const Locale('vi'));
+    await container
+        .read(localeControllerProvider.notifier)
+        .setLocale(const Locale('vi'));
 
     expect(container.read(localeControllerProvider), const Locale('vi'));
     expect(prefs.getString(LocaleController.storageKey), 'vi');

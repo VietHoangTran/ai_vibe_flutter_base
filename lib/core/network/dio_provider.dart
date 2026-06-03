@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../config/app_config.dart';
+import 'auth_interceptor.dart';
 import 'network_exception_mapper.dart';
 import '../utils/app_logger.dart';
 
@@ -17,6 +18,10 @@ Dio dio(Ref ref) {
       sendTimeout: const Duration(seconds: 15),
       headers: {'Content-Type': 'application/json'},
     ),
+  );
+
+  dio.interceptors.add(
+    AuthInterceptor(tokenStore: ref.watch(authTokenStoreProvider)),
   );
 
   dio.interceptors.add(

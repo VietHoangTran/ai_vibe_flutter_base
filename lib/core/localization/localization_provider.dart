@@ -5,14 +5,16 @@ import '../storage/shared_preferences_provider.dart';
 
 const supportedLocales = [Locale('en'), Locale('vi'), Locale('ja')];
 
-final localeControllerProvider = NotifierProvider<LocaleController, Locale?>(LocaleController.new);
+final localeControllerProvider = NotifierProvider<LocaleController, Locale?>(
+  LocaleController.new,
+);
 
 class LocaleController extends Notifier<Locale?> {
   static const storageKey = 'app_locale';
 
   @override
   Locale? build() {
-    final prefs = ref.watch(sharedPreferencesProvider).valueOrNull;
+    final prefs = ref.watch(sharedPreferencesProvider).value;
     final languageCode = prefs?.getString(storageKey);
     return _parseLocale(languageCode);
   }
@@ -26,7 +28,9 @@ class LocaleController extends Notifier<Locale?> {
       return;
     }
 
-    if (!supportedLocales.any((item) => item.languageCode == locale.languageCode)) {
+    if (!supportedLocales.any(
+      (item) => item.languageCode == locale.languageCode,
+    )) {
       throw ArgumentError.value(locale, 'locale', 'Unsupported locale');
     }
 

@@ -37,7 +37,9 @@ GoRouter appRouter(Ref ref) {
     ],
     errorBuilder: (context, state) => Scaffold(
       appBar: AppBar(title: Text(context.l10n.notFound)),
-      body: Center(child: Text(state.error?.message ?? context.l10n.routeNotFound)),
+      body: Center(
+        child: Text(state.error?.message ?? context.l10n.routeNotFound),
+      ),
     ),
   );
 }

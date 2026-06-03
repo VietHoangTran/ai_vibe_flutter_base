@@ -19,10 +19,10 @@ class AppConfig {
   );
 
   static AppEnvironment get appEnvironment => switch (environment) {
-        'prod' || 'production' => AppEnvironment.prod,
-        'staging' => AppEnvironment.staging,
-        _ => AppEnvironment.dev,
-      };
+    'prod' || 'production' => AppEnvironment.prod,
+    'staging' => AppEnvironment.staging,
+    _ => AppEnvironment.dev,
+  };
 
   static bool get isProduction => appEnvironment == AppEnvironment.prod;
 }

@@ -26,7 +26,7 @@ class AppButton extends StatelessWidget {
     if (icon != null) {
       return FilledButton.icon(
         onPressed: isLoading ? null : onPressed,
-        icon: icon!,
+        icon: icon,
         label: child,
       );
     }
