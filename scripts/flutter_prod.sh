@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 set -eu
 
-flutter run --dart-define-from-file=config/prod.json "$@"
+scripts/flutter_env.sh env/.env.prod run "$@"

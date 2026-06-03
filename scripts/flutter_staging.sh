@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 set -eu
 
-flutter run --dart-define-from-file=config/staging.json "$@"
+scripts/flutter_env.sh env/.env.staging run "$@"

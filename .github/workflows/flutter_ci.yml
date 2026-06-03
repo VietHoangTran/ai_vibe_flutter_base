@@ -67,9 +67,18 @@ jobs:
       - name: Generate code
         run: dart run build_runner build --delete-conflicting-outputs
 
+      - name: Create staging env file
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          cat > env/.env.staging <<EOF
+          APP_ENV=staging
+          APP_NAME=AI Vibe Flutter Base Staging
+          API_BASE_URL=${{ secrets.STAGING_API_BASE_URL || 'https://staging-api.example.com' }}
+          EOF
+
       - name: Build staging APK
         if: github.ref == 'refs/heads/dev'
-        run: flutter build apk --release --dart-define-from-file=config/staging.json
+        run: scripts/flutter_env.sh env/.env.staging build apk --release
 
       - name: Upload staging APK
         if: github.ref == 'refs/heads/dev'
@@ -92,9 +101,18 @@ jobs:
           files: build/app/outputs/flutter-apk/app-release.apk
           prerelease: true
 
+      - name: Create production env file
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          cat > env/.env.prod <<EOF
+          APP_ENV=prod
+          APP_NAME=AI Vibe Flutter Base
+          API_BASE_URL=${{ secrets.PROD_API_BASE_URL || 'https://api.example.com' }}
+          EOF
+
       - name: Build production APK
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        run: flutter build apk --release --dart-define-from-file=config/prod.json
+        run: scripts/flutter_env.sh env/.env.prod build apk --release
 
       - name: Upload production APK
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'

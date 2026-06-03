@@ -75,15 +75,22 @@ dart run tools/feature_cli.dart profile
 
 ## Environments
 
-Use Dart define files:
+Use env files. Only `env/.env.example` and `env/.env.dev` are committed; real staging/prod env files are ignored.
 
 ```bash
+cp env/.env.example env/.env.staging
+cp env/.env.example env/.env.prod
+
 scripts/flutter_dev.sh
 scripts/flutter_staging.sh
 scripts/flutter_prod.sh
+```
 
-flutter run --dart-define-from-file=config/staging.json
-flutter run --dart-define-from-file=config/prod.json
+Build with env files:
+
+```bash
+scripts/flutter_env.sh env/.env.staging build apk --release
+scripts/flutter_env.sh env/.env.prod build apk --release
 ```
 
 ## Localization

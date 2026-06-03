@@ -62,12 +62,17 @@ Then add routes manually in `lib/core/routing/app_router.dart` if the feature ne
 
 ## Environments
 
-Use Dart define files:
+Use env files and convert them to compile-time Dart defines through `scripts/flutter_env.sh`.
 
-```bash
-flutter run --dart-define-from-file=config/staging.json
-flutter run --dart-define-from-file=config/prod.json
-```
+Committed env files:
+
+- `env/.env.example`
+- `env/.env.dev`
+
+Ignored env files for real values:
+
+- `env/.env.staging`
+- `env/.env.prod`
 
 Shortcut scripts:
 
@@ -77,7 +82,7 @@ scripts/flutter_staging.sh
 scripts/flutter_prod.sh
 ```
 
-Do not commit real secrets in config files. Use placeholders in this base.
+Do not commit real secrets in env files. Use placeholders in this base. Remember that Flutter compile-time defines are embedded in the built app, so do not put server secrets in mobile env files.
 
 ## Localization
 
