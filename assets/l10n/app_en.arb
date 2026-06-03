@@ -5,6 +5,8 @@
   "loginTitle": "Login",
   "emailLabel": "Email",
   "passwordLabel": "Password",
+  "emailHint": "you@example.com",
+  "passwordHint": "Enter your password",
   "signIn": "Sign in",
   "welcomeUser": "Welcome, {name}",
   "@welcomeUser": {
@@ -17,5 +19,49 @@
   "baseReady": "Base project is ready. Build your feature modules inside lib/features.",
   "signOut": "Sign out",
   "notFound": "Not found",
-  "routeNotFound": "Route not found"
+  "routeNotFound": "Route not found",
+  "loginWelcome": "Welcome back",
+  "loginSubtitle": "Sign in to continue to your workspace",
+  "forgotPassword": "Forgot password?",
+  "demoHint": "Demo: demo@example.com / password",
+  "validationEmailRequired": "Please enter your email",
+  "validationEmailInvalid": "Enter a valid email address",
+  "validationPasswordRequired": "Please enter your password",
+  "homeGreeting": "Hi, {name}",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeWelcomeSubtitle": "Welcome back to your base",
+  "homeQuickActions": "Quick actions",
+  "homeActionFeatures": "Features",
+  "homeActionFeaturesDesc": "Browse feature modules",
+  "homeActionDocs": "Docs",
+  "homeActionDocsDesc": "Read the guides",
+  "homeActionComponents": "Components",
+  "homeActionComponentsDesc": "Shared widgets",
+  "homeActionSettings": "Settings",
+  "homeActionSettingsDesc": "Theme & language",
+  "homeTipTitle": "Getting started",
+  "homeTipBody": "Generate a new feature module with the feature CLI, then build its UI inside lib/features.",
+  "settingsTitle": "Settings",
+  "settingsAppearance": "Appearance",
+  "settingsThemeMode": "Theme",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "settingsLanguage": "Language",
+  "languageSystem": "System default",
+  "languageEnglish": "English",
+  "languageVietnamese": "Tiếng Việt",
+  "languageJapanese": "日本語",
+  "settingsAccount": "Account",
+  "settingsAbout": "About",
+  "settingsVersion": "Version",
+  "signOutConfirmTitle": "Sign out?",
+  "signOutConfirmBody": "You'll need to sign in again to continue.",
+  "cancel": "Cancel"
 }

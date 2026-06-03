@@ -24,6 +24,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordLabel => 'Password';
 
   @override
+  String get emailHint => 'you@example.com';
+
+  @override
+  String get passwordHint => 'Enter your password';
+
+  @override
   String get signIn => 'Sign in';
 
   @override
@@ -43,4 +49,118 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get routeNotFound => 'Route not found';
+
+  @override
+  String get loginWelcome => 'Welcome back';
+
+  @override
+  String get loginSubtitle => 'Sign in to continue to your workspace';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get demoHint => 'Demo: demo@example.com / password';
+
+  @override
+  String get validationEmailRequired => 'Please enter your email';
+
+  @override
+  String get validationEmailInvalid => 'Enter a valid email address';
+
+  @override
+  String get validationPasswordRequired => 'Please enter your password';
+
+  @override
+  String homeGreeting(String name) {
+    return 'Hi, $name';
+  }
+
+  @override
+  String get homeWelcomeSubtitle => 'Welcome back to your base';
+
+  @override
+  String get homeQuickActions => 'Quick actions';
+
+  @override
+  String get homeActionFeatures => 'Features';
+
+  @override
+  String get homeActionFeaturesDesc => 'Browse feature modules';
+
+  @override
+  String get homeActionDocs => 'Docs';
+
+  @override
+  String get homeActionDocsDesc => 'Read the guides';
+
+  @override
+  String get homeActionComponents => 'Components';
+
+  @override
+  String get homeActionComponentsDesc => 'Shared widgets';
+
+  @override
+  String get homeActionSettings => 'Settings';
+
+  @override
+  String get homeActionSettingsDesc => 'Theme & language';
+
+  @override
+  String get homeTipTitle => 'Getting started';
+
+  @override
+  String get homeTipBody =>
+      'Generate a new feature module with the feature CLI, then build its UI inside lib/features.';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsAppearance => 'Appearance';
+
+  @override
+  String get settingsThemeMode => 'Theme';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get settingsLanguage => 'Language';
+
+  @override
+  String get languageSystem => 'System default';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageVietnamese => 'Tiếng Việt';
+
+  @override
+  String get languageJapanese => '日本語';
+
+  @override
+  String get settingsAccount => 'Account';
+
+  @override
+  String get settingsAbout => 'About';
+
+  @override
+  String get settingsVersion => 'Version';
+
+  @override
+  String get signOutConfirmTitle => 'Sign out?';
+
+  @override
+  String get signOutConfirmBody => 'You\'ll need to sign in again to continue.';
+
+  @override
+  String get cancel => 'Cancel';
 }

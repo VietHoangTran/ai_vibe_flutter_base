@@ -130,6 +130,18 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get passwordLabel;
 
+  /// No description provided for @emailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'you@example.com'**
+  String get emailHint;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get passwordHint;
+
   /// No description provided for @signIn.
   ///
   /// In en, this message translates to:
@@ -165,6 +177,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Route not found'**
   String get routeNotFound;
+
+  /// No description provided for @loginWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back'**
+  String get loginWelcome;
+
+  /// No description provided for @loginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to continue to your workspace'**
+  String get loginSubtitle;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @demoHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Demo: demo@example.com / password'**
+  String get demoHint;
+
+  /// No description provided for @validationEmailRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get validationEmailRequired;
+
+  /// No description provided for @validationEmailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address'**
+  String get validationEmailInvalid;
+
+  /// No description provided for @validationPasswordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get validationPasswordRequired;
+
+  /// No description provided for @homeGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, {name}'**
+  String homeGreeting(String name);
+
+  /// No description provided for @homeWelcomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back to your base'**
+  String get homeWelcomeSubtitle;
+
+  /// No description provided for @homeQuickActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick actions'**
+  String get homeQuickActions;
+
+  /// No description provided for @homeActionFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get homeActionFeatures;
+
+  /// No description provided for @homeActionFeaturesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse feature modules'**
+  String get homeActionFeaturesDesc;
+
+  /// No description provided for @homeActionDocs.
+  ///
+  /// In en, this message translates to:
+  /// **'Docs'**
+  String get homeActionDocs;
+
+  /// No description provided for @homeActionDocsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the guides'**
+  String get homeActionDocsDesc;
+
+  /// No description provided for @homeActionComponents.
+  ///
+  /// In en, this message translates to:
+  /// **'Components'**
+  String get homeActionComponents;
+
+  /// No description provided for @homeActionComponentsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared widgets'**
+  String get homeActionComponentsDesc;
+
+  /// No description provided for @homeActionSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get homeActionSettings;
+
+  /// No description provided for @homeActionSettingsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme & language'**
+  String get homeActionSettingsDesc;
+
+  /// No description provided for @homeTipTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting started'**
+  String get homeTipTitle;
+
+  /// No description provided for @homeTipBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate a new feature module with the feature CLI, then build its UI inside lib/features.'**
+  String get homeTipBody;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearance;
+
+  /// No description provided for @settingsThemeMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get settingsThemeMode;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @settingsLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingsLanguage;
+
+  /// No description provided for @languageSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System default'**
+  String get languageSystem;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @languageVietnamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiếng Việt'**
+  String get languageVietnamese;
+
+  /// No description provided for @languageJapanese.
+  ///
+  /// In en, this message translates to:
+  /// **'日本語'**
+  String get languageJapanese;
+
+  /// No description provided for @settingsAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get settingsAccount;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingsAbout;
+
+  /// No description provided for @settingsVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get settingsVersion;
+
+  /// No description provided for @signOutConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out?'**
+  String get signOutConfirmTitle;
+
+  /// No description provided for @signOutConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll need to sign in again to continue.'**
+  String get signOutConfirmBody;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
 }
 
 class _AppLocalizationsDelegate

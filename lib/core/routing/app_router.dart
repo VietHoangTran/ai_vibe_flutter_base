@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../features/auth/presentation/controllers/auth_controller.dart';
 import '../../features/auth/presentation/pages/home_page.dart';
 import '../../features/auth/presentation/pages/login_page.dart';
+import '../../features/settings/presentation/pages/settings_page.dart';
 import '../localization/app_localizations_x.dart';
 import 'route_names.dart';
 
@@ -33,6 +34,11 @@ GoRouter appRouter(Ref ref) {
         path: '/login',
         name: RouteNames.login,
         builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: '/settings',
+        name: RouteNames.settings,
+        builder: (context, state) => const SettingsPage(),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(

@@ -5,6 +5,8 @@
   "loginTitle": "Đăng nhập",
   "emailLabel": "Email",
   "passwordLabel": "Mật khẩu",
+  "emailHint": "ban@example.com",
+  "passwordHint": "Nhập mật khẩu của bạn",
   "signIn": "Đăng nhập",
   "welcomeUser": "Xin chào, {name}",
   "@welcomeUser": {
@@ -17,5 +19,49 @@
   "baseReady": "Base project đã sẵn sàng. Hãy xây dựng các module tính năng trong lib/features.",
   "signOut": "Đăng xuất",
   "notFound": "Không tìm thấy",
-  "routeNotFound": "Không tìm thấy route"
+  "routeNotFound": "Không tìm thấy route",
+  "loginWelcome": "Chào mừng trở lại",
+  "loginSubtitle": "Đăng nhập để tiếp tục vào workspace của bạn",
+  "forgotPassword": "Quên mật khẩu?",
+  "demoHint": "Demo: demo@example.com / password",
+  "validationEmailRequired": "Vui lòng nhập email",
+  "validationEmailInvalid": "Nhập địa chỉ email hợp lệ",
+  "validationPasswordRequired": "Vui lòng nhập mật khẩu",
+  "homeGreeting": "Chào {name}",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeWelcomeSubtitle": "Chào mừng trở lại với base của bạn",
+  "homeQuickActions": "Truy cập nhanh",
+  "homeActionFeatures": "Tính năng",
+  "homeActionFeaturesDesc": "Xem các module",
+  "homeActionDocs": "Tài liệu",
+  "homeActionDocsDesc": "Đọc hướng dẫn",
+  "homeActionComponents": "Thành phần",
+  "homeActionComponentsDesc": "Widget dùng chung",
+  "homeActionSettings": "Cài đặt",
+  "homeActionSettingsDesc": "Giao diện & ngôn ngữ",
+  "homeTipTitle": "Bắt đầu",
+  "homeTipBody": "Tạo module tính năng mới bằng feature CLI, sau đó xây dựng UI trong lib/features.",
+  "settingsTitle": "Cài đặt",
+  "settingsAppearance": "Giao diện",
+  "settingsThemeMode": "Chủ đề",
+  "themeSystem": "Hệ thống",
+  "themeLight": "Sáng",
+  "themeDark": "Tối",
+  "settingsLanguage": "Ngôn ngữ",
+  "languageSystem": "Mặc định hệ thống",
+  "languageEnglish": "English",
+  "languageVietnamese": "Tiếng Việt",
+  "languageJapanese": "日本語",
+  "settingsAccount": "Tài khoản",
+  "settingsAbout": "Giới thiệu",
+  "settingsVersion": "Phiên bản",
+  "signOutConfirmTitle": "Đăng xuất?",
+  "signOutConfirmBody": "Bạn sẽ cần đăng nhập lại để tiếp tục.",
+  "cancel": "Hủy"
 }

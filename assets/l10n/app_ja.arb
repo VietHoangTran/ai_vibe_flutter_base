@@ -5,6 +5,8 @@
   "loginTitle": "ログイン",
   "emailLabel": "メールアドレス",
   "passwordLabel": "パスワード",
+  "emailHint": "you@example.com",
+  "passwordHint": "パスワードを入力",
   "signIn": "ログイン",
   "welcomeUser": "ようこそ、{name}",
   "@welcomeUser": {
@@ -17,5 +19,49 @@
   "baseReady": "ベースプロジェクトの準備ができました。lib/features に機能モジュールを作成してください。",
   "signOut": "サインアウト",
   "notFound": "見つかりません",
-  "routeNotFound": "ルートが見つかりません"
+  "routeNotFound": "ルートが見つかりません",
+  "loginWelcome": "おかえりなさい",
+  "loginSubtitle": "ワークスペースに続けるにはログインしてください",
+  "forgotPassword": "パスワードをお忘れですか？",
+  "demoHint": "デモ: demo@example.com / password",
+  "validationEmailRequired": "メールアドレスを入力してください",
+  "validationEmailInvalid": "有効なメールアドレスを入力してください",
+  "validationPasswordRequired": "パスワードを入力してください",
+  "homeGreeting": "こんにちは、{name}",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeWelcomeSubtitle": "ベースへおかえりなさい",
+  "homeQuickActions": "クイックアクション",
+  "homeActionFeatures": "機能",
+  "homeActionFeaturesDesc": "モジュールを見る",
+  "homeActionDocs": "ドキュメント",
+  "homeActionDocsDesc": "ガイドを読む",
+  "homeActionComponents": "コンポーネント",
+  "homeActionComponentsDesc": "共有ウィジェット",
+  "homeActionSettings": "設定",
+  "homeActionSettingsDesc": "テーマと言語",
+  "homeTipTitle": "はじめに",
+  "homeTipBody": "feature CLI で新しい機能モジュールを生成し、lib/features 内で UI を構築してください。",
+  "settingsTitle": "設定",
+  "settingsAppearance": "外観",
+  "settingsThemeMode": "テーマ",
+  "themeSystem": "システム",
+  "themeLight": "ライト",
+  "themeDark": "ダーク",
+  "settingsLanguage": "言語",
+  "languageSystem": "システム既定",
+  "languageEnglish": "English",
+  "languageVietnamese": "Tiếng Việt",
+  "languageJapanese": "日本語",
+  "settingsAccount": "アカウント",
+  "settingsAbout": "アプリについて",
+  "settingsVersion": "バージョン",
+  "signOutConfirmTitle": "サインアウトしますか？",
+  "signOutConfirmBody": "続けるには再度ログインが必要です。",
+  "cancel": "キャンセル"
 }

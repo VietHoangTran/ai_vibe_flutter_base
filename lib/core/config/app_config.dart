@@ -8,6 +8,11 @@ class AppConfig {
     defaultValue: 'AI Vibe Flutter Base',
   );
 
+  static const appVersion = String.fromEnvironment(
+    'APP_VERSION',
+    defaultValue: '1.0.0',
+  );
+
   static const environment = String.fromEnvironment(
     'APP_ENV',
     defaultValue: 'dev',
