@@ -1,0 +1,18 @@
+{
+  "@@locale": "vi",
+  "appTitle": "AI Vibe Flutter Base",
+  "homeTitle": "Trang chủ",
+  "loginTitle": "Đăng nhập",
+  "welcomeUser": "Xin chào, {name}",
+  "@welcomeUser": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "baseReady": "Base project đã sẵn sàng. Hãy xây dựng các module tính năng trong lib/features.",
+  "signOut": "Đăng xuất",
+  "notFound": "Không tìm thấy",
+  "routeNotFound": "Không tìm thấy route"
+}

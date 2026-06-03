@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+  "appTitle": "AI Vibe Flutter Base",
+  "homeTitle": "Home",
+  "loginTitle": "Login",
+  "welcomeUser": "Welcome, {name}",
+  "@welcomeUser": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "baseReady": "Base project is ready. Build your feature modules inside lib/features.",
+  "signOut": "Sign out",
+  "notFound": "Not found",
+  "routeNotFound": "Route not found"
+}

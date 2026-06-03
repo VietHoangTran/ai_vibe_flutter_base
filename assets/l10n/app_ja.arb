@@ -1,0 +1,18 @@
+{
+  "@@locale": "ja",
+  "appTitle": "AI Vibe Flutter Base",
+  "homeTitle": "ホーム",
+  "loginTitle": "ログイン",
+  "welcomeUser": "ようこそ、{name}",
+  "@welcomeUser": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "baseReady": "ベースプロジェクトの準備ができました。lib/features に機能モジュールを作成してください。",
+  "signOut": "サインアウト",
+  "notFound": "見つかりません",
+  "routeNotFound": "ルートが見つかりません"
+}

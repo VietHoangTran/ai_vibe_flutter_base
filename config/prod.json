@@ -1,0 +1,5 @@
+{
+  "APP_ENV": "prod",
+  "APP_NAME": "AI Vibe Flutter Base",
+  "API_BASE_URL": "https://api.example.com"
+}
