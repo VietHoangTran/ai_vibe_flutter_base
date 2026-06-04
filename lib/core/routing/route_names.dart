@@ -4,4 +4,6 @@ class RouteNames {
   static const home = 'home';
   static const login = 'login';
   static const settings = 'settings';
+
+  // feature_cli:route-names
 }

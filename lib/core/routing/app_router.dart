@@ -6,6 +6,7 @@ import '../../features/auth/presentation/controllers/auth_controller.dart';
 import '../../features/auth/presentation/pages/home_page.dart';
 import '../../features/auth/presentation/pages/login_page.dart';
 import '../../features/settings/presentation/pages/settings_page.dart';
+// feature_cli:router-imports
 import '../localization/app_localizations_x.dart';
 import 'route_names.dart';
 
@@ -40,6 +41,7 @@ GoRouter appRouter(Ref ref) {
         name: RouteNames.settings,
         builder: (context, state) => const SettingsPage(),
       ),
+      // feature_cli:router-routes
     ],
     errorBuilder: (context, state) => Scaffold(
       appBar: AppBar(title: Text(context.l10n.notFound)),

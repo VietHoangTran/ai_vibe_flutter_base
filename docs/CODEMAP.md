@@ -114,6 +114,17 @@ sign-out. To enable refresh-on-401, override `tokenRefresherProvider` with a
 real `TokenRefresher` (the default is a no-op, so 401s propagate unchanged);
 `RefreshTokenInterceptor` then transparently retries the failed request.
 
+### Connectivity
+
+- `lib/core/network/connectivity_service.dart`
+- `lib/core/network/connectivity_status_provider.dart`
+- `lib/shared/widgets/offline_banner.dart`
+
+`connectivityStatusProvider` streams `ConnectivityStatus` (online/offline) from
+`connectivity_plus`. `OfflineBanner` (wired in `app.dart`) shows a banner while
+offline. Status reflects the active transport, not real reachability, so treat
+it as a hint, not a guarantee.
+
 ### Monitoring
 
 - `lib/core/monitoring/crash_reporter.dart`

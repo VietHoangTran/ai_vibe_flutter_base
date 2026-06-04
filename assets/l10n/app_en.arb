@@ -63,5 +63,6 @@
   "settingsVersion": "Version",
   "signOutConfirmTitle": "Sign out?",
   "signOutConfirmBody": "You'll need to sign in again to continue.",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "offlineMessage": "No internet connection"
 }

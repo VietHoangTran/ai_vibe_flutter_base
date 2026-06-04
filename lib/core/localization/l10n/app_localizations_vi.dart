@@ -163,4 +163,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get cancel => 'Hủy';
+
+  @override
+  String get offlineMessage => 'Không có kết nối internet';
 }

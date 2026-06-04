@@ -63,5 +63,6 @@
   "settingsVersion": "バージョン",
   "signOutConfirmTitle": "サインアウトしますか？",
   "signOutConfirmBody": "続けるには再度ログインが必要です。",
-  "cancel": "キャンセル"
+  "cancel": "キャンセル",
+  "offlineMessage": "インターネット接続がありません"
 }

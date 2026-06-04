@@ -7,6 +7,7 @@ import '../core/routing/app_router.dart';
 import '../core/theme/app_theme.dart';
 import '../features/settings/domain/entities/app_settings.dart';
 import '../features/settings/presentation/controllers/settings_controller.dart';
+import '../shared/widgets/offline_banner.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});
@@ -28,6 +29,12 @@ class App extends ConsumerWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       routerConfig: router,
+      builder: (context, child) => Column(
+        children: [
+          const OfflineBanner(),
+          Expanded(child: child ?? const SizedBox.shrink()),
+        ],
+      ),
     );
   }
 }

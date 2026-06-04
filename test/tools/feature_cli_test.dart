@@ -147,4 +147,84 @@ void main() {
       expect(output, contains('docs/templates/story.md'));
     });
   });
+
+  group('route registration', () {
+    const options = FeatureCliOptions(featureName: 'user_profile');
+
+    const routeNamesSource =
+        '''
+class RouteNames {
+  const RouteNames._();
+
+  static const home = 'home';
+
+  $routeNamesAnchor
+}
+''';
+
+    const routerSource =
+        '''
+import '../../features/settings/presentation/pages/settings_page.dart';
+$routerImportsAnchor
+import 'route_names.dart';
+
+GoRouter appRouter(Ref ref) {
+  return GoRouter(
+    routes: [
+      GoRoute(
+        path: '/settings',
+        name: RouteNames.settings,
+        builder: (context, state) => const SettingsPage(),
+      ),
+      $routerRoutesAnchor
+    ],
+  );
+}
+''';
+
+    test('inserts route-name constants at the anchor', () {
+      final result = registerRouteName(routeNamesSource, options);
+
+      expect(result, contains("static const userProfile = 'userProfile';"));
+      expect(
+        result,
+        contains("static const userProfilePath = '/user_profile';"),
+      );
+      expect(result, contains(routeNamesAnchor));
+    });
+
+    test('inserts the page import and a GoRoute into the router', () {
+      final withRoute = registerRouterRoute(routerSource, options);
+      final result = registerRouteImport(withRoute, options);
+
+      expect(result, contains('import '));
+      expect(
+        result,
+        contains('/presentation/pages/user_profile_page.dart'),
+      );
+      expect(result, contains('path: RouteNames.userProfilePath,'));
+      expect(result, contains('name: RouteNames.userProfile,'));
+      expect(
+        result,
+        contains('builder: (context, state) => const UserProfilePage(),'),
+      );
+      expect(result, contains(routerRoutesAnchor));
+    });
+
+    test('is idempotent when the route is already registered', () {
+      final once = registerRouteName(routeNamesSource, options);
+      final twice = registerRouteName(once, options);
+
+      expect(twice, once);
+      expect('userProfile ='.allMatches(twice).length, 1);
+    });
+
+    test('returns source unchanged when the anchor is missing', () {
+      const withoutAnchor = 'class RouteNames {}\n';
+
+      expect(registerRouteName(withoutAnchor, options), withoutAnchor);
+      expect(registerRouterRoute(withoutAnchor, options), withoutAnchor);
+      expect(registerRouteImport(withoutAnchor, options), withoutAnchor);
+    });
+  });
 }

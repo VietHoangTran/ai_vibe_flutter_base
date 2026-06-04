@@ -2,6 +2,13 @@ import 'dart:io';
 
 const _packageName = 'ai_vibe_flutter_base';
 
+const routeNamesPath = 'lib/core/routing/route_names.dart';
+const appRouterPath = 'lib/core/routing/app_router.dart';
+
+const routeNamesAnchor = '// feature_cli:route-names';
+const routerImportsAnchor = '// feature_cli:router-imports';
+const routerRoutesAnchor = '// feature_cli:router-routes';
+
 class FeatureCliOptions {
   const FeatureCliOptions({
     required this.featureName,
@@ -182,23 +189,16 @@ String buildNextSteps(FeatureCliOptions options) {
 
   if (options.withRoute) {
     buffer
-      ..writeln('\nRoute guidance:')
-      ..writeln('- Add to lib/core/routing/route_names.dart:')
-      ..writeln("  static const $camelName = '$camelName';")
-      ..writeln("  static const ${camelName}Path = '/$featureName';")
-      ..writeln('- Add import to lib/core/routing/app_router.dart:')
-      ..writeln(
-        "  import 'package:$_packageName/features/$featureName/presentation/pages/${featureName}_page.dart';",
-      )
-      ..writeln('- Add GoRoute:')
-      ..writeln('  GoRoute(')
-      ..writeln('    name: RouteNames.$camelName,')
-      ..writeln('    path: RouteNames.${camelName}Path,')
-      ..writeln('    builder: (context, state) => const ${className}Page(),')
-      ..writeln('  ),');
+      ..writeln('\nRoute (auto-registered with --with-route):')
+      ..writeln("  RouteNames.$camelName -> '/$featureName'")
+      ..writeln('  Edited route_names.dart and app_router.dart at the')
+      ..writeln('  feature_cli anchors. Navigate with')
+      ..writeln('  context.pushNamed(RouteNames.$camelName).')
+      ..writeln('  Run build_runner so app_router.g.dart picks up the route.');
   } else {
     buffer.writeln(
-      '\nRoute guidance: pass --with-route next time to print route snippets.',
+      '\nRoute guidance: pass --with-route to auto-register the route in '
+      'route_names.dart and app_router.dart.',
     );
   }
 
@@ -231,6 +231,57 @@ String buildNextSteps(FeatureCliOptions options) {
   }
 
   return buffer.toString();
+}
+
+/// Inserts the route-name constants at [routeNamesAnchor].
+///
+/// Returns [source] unchanged when the constants already exist or the anchor
+/// is missing, so re-running the generator is safe and never corrupts a file
+/// whose anchor a human removed.
+String registerRouteName(String source, FeatureCliOptions options) {
+  final camel = options.camelName;
+  if (source.contains('static const $camel =')) return source;
+  if (!source.contains(routeNamesAnchor)) return source;
+
+  final insertion =
+      "  static const $camel = '$camel';\n"
+      "  static const ${camel}Path = '/${options.featureName}';\n";
+  return source.replaceFirst(
+    '  $routeNamesAnchor',
+    '$insertion  $routeNamesAnchor',
+  );
+}
+
+/// Inserts the feature page import at [routerImportsAnchor].
+String registerRouteImport(String source, FeatureCliOptions options) {
+  final import =
+      "import '../../features/${options.featureName}"
+      "/presentation/pages/${options.featureName}_page.dart';";
+  if (source.contains(import)) return source;
+  if (!source.contains(routerImportsAnchor)) return source;
+
+  return source.replaceFirst(
+    routerImportsAnchor,
+    '$import\n$routerImportsAnchor',
+  );
+}
+
+/// Inserts a `GoRoute` for the feature at [routerRoutesAnchor].
+String registerRouterRoute(String source, FeatureCliOptions options) {
+  final camel = options.camelName;
+  if (source.contains('name: RouteNames.$camel,')) return source;
+  if (!source.contains(routerRoutesAnchor)) return source;
+
+  final route =
+      '      GoRoute(\n'
+      '        path: RouteNames.${camel}Path,\n'
+      '        name: RouteNames.$camel,\n'
+      '        builder: (context, state) => const ${options.className}Page(),\n'
+      '      ),\n';
+  return source.replaceFirst(
+    '      $routerRoutesAnchor',
+    '$route      $routerRoutesAnchor',
+  );
 }
 
 void main(List<String> args) {
@@ -270,7 +321,57 @@ void _runGenerator(FeatureCliOptions options) {
     stdout.writeln('Created: ${entry.key}');
   }
 
+  if (options.withRoute) {
+    _registerRoute(options);
+  }
+
   stdout.write(buildNextSteps(options));
+}
+
+void _registerRoute(FeatureCliOptions options) {
+  if (options.dryRun) {
+    stdout.writeln(
+      'Would register RouteNames.${options.camelName} in $routeNamesPath '
+      'and $appRouterPath.',
+    );
+    return;
+  }
+
+  _applyRouteEdit(
+    path: routeNamesPath,
+    label: 'route name',
+    transform: (source) => registerRouteName(source, options),
+  );
+  _applyRouteEdit(
+    path: appRouterPath,
+    label: 'router route',
+    transform: (source) =>
+        registerRouteImport(registerRouterRoute(source, options), options),
+  );
+}
+
+void _applyRouteEdit({
+  required String path,
+  required String label,
+  required String Function(String source) transform,
+}) {
+  final file = File(path);
+  if (!file.existsSync()) {
+    stderr.writeln('Skip $label: $path not found.');
+    return;
+  }
+
+  final original = file.readAsStringSync();
+  final updated = transform(original);
+  if (updated == original) {
+    stderr.writeln(
+      'Skip $label: anchor missing or route already registered in $path.',
+    );
+    return;
+  }
+
+  file.writeAsStringSync(updated);
+  stdout.writeln('Updated $path ($label).');
 }
 
 void _printUsage() {
@@ -291,8 +392,9 @@ Rules:
   - Controllers/providers/models use codegen (@riverpod, freezed);
     run build_runner after generating.
   - Do not put business logic in pages/widgets; use controllers/usecases.
-  - The generator prints route, localization, and story guidance; it does not
-    auto-edit router, ARB, localization usage, or story files.
+  - With --with-route the generator edits route_names.dart and app_router.dart
+    at the feature_cli anchors (re-running is idempotent). ARB, localization
+    usage, and story files are not auto-edited.
 ''');
 }
 

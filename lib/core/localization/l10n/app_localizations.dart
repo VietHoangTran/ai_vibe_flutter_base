@@ -399,6 +399,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
+
+  /// No description provided for @offlineMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get offlineMessage;
 }
 
 class _AppLocalizationsDelegate

@@ -56,10 +56,13 @@ Use the generator instead of hand-creating feature skeletons:
 
 ```bash
 dart run tools/feature_cli.dart profile --dry-run
-dart run tools/feature_cli.dart profile
+dart run tools/feature_cli.dart profile --with-route
 ```
 
-Then add routes manually in `lib/core/routing/app_router.dart` if the feature needs navigation.
+Pass `--with-route` to auto-register the route: the generator edits
+`route_names.dart` and `app_router.dart` at the `// feature_cli:` anchors
+(idempotent). Keep those anchor comments intact so registration keeps working.
+Without `--with-route` you must wire the route manually.
 
 ## Environments
 
@@ -112,6 +115,7 @@ Prefer shared components before introducing one-off UI:
 - `AsyncValueView`
 - `DismissKeyboard`
 - `showAppSnackBar`
+- `OfflineBanner` (wired globally; reacts to `connectivityStatusProvider`)
 
 If a component becomes reusable, put it in `lib/shared/widgets/`.
 
