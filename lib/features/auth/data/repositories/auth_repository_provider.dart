@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../../core/network/auth_token_store.dart';
 import '../../../../core/network/dio_provider.dart';
 import '../../../../core/storage/secure_storage_provider.dart';
 import '../../domain/repositories/auth_repository.dart';
@@ -14,5 +15,6 @@ AuthRepository authRepository(Ref ref) {
   return AuthRepositoryImpl(
     localDataSource: AuthLocalDataSource(ref.watch(secureStorageProvider)),
     remoteDataSource: AuthRemoteDataSource(ref.watch(dioProvider)),
+    tokenStore: ref.watch(authTokenStoreProvider),
   );
 }

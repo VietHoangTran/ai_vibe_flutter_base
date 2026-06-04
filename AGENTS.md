@@ -121,7 +121,10 @@ Use `dioProvider` from `lib/core/network/dio_provider.dart`.
 
 - Do not create global singleton Dio instances.
 - Do not mutate Dio base URL per request.
-- Keep auth/refresh-token logic in interceptors or dedicated services.
+- Persist/read tokens through `authTokenStoreProvider`, not raw secure storage.
+- Token refresh is wired: implement `TokenRefresher` and override
+  `tokenRefresherProvider` to enable refresh-on-401. The default is a no-op.
+- Report uncaught errors through `crashReporterProvider`, not bare logging.
 - Avoid logging sensitive data in production.
 
 ## Storage

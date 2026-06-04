@@ -98,12 +98,30 @@ redirect logic live in `app_router.dart`. Keep route builders thin.
 
 - `lib/core/network/dio_provider.dart`
 - `lib/core/network/auth_interceptor.dart`
+- `lib/core/network/auth_token_store.dart`
+- `lib/core/network/token_refresher.dart`
+- `lib/core/network/refresh_token_interceptor.dart`
 - `lib/core/network/network_exception_mapper.dart`
 - `lib/core/error/app_exception.dart`
 
 Use `dioProvider`; do not create global singleton Dio instances. Widgets/pages
 must not call Dio directly. Convert transport/model data to domain entities at
 repository boundaries.
+
+`AuthInterceptor` attaches the access token read from `authTokenStoreProvider`.
+The auth flow persists tokens via that store on sign-in and clears them on
+sign-out. To enable refresh-on-401, override `tokenRefresherProvider` with a
+real `TokenRefresher` (the default is a no-op, so 401s propagate unchanged);
+`RefreshTokenInterceptor` then transparently retries the failed request.
+
+### Monitoring
+
+- `lib/core/monitoring/crash_reporter.dart`
+
+`bootstrap()` routes `FlutterError.onError` and uncaught zone errors to
+`crashReporterProvider`. The default `LoggingCrashReporter` only logs; override
+the provider to forward to Sentry/Crashlytics. Never put tokens or PII in
+breadcrumbs.
 
 ### Storage
 

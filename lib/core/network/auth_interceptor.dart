@@ -1,33 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../storage/secure_storage_repository.dart';
+import 'auth_token_store.dart';
 
-abstract interface class AuthTokenStore {
-  Future<String?> readAccessToken();
-}
-
-/// Reads the bearer access token from secure storage.
-///
-/// Persist the token under [accessTokenKey] from your auth flow
-/// (for example in `AuthLocalDataSource`) so requests are authenticated.
-class SecureStorageAuthTokenStore implements AuthTokenStore {
-  const SecureStorageAuthTokenStore(this._storage);
-
-  static const accessTokenKey = 'auth.access_token';
-
-  final SecureStorageRepository _storage;
-
-  @override
-  Future<String?> readAccessToken() => _storage.read(accessTokenKey);
-}
-
-final authTokenStoreProvider = Provider<AuthTokenStore>((ref) {
-  return SecureStorageAuthTokenStore(
-    ref.watch(secureStorageRepositoryProvider),
-  );
-});
-
+/// Attaches the bearer access token from [AuthTokenStore] to every request.
 class AuthInterceptor extends Interceptor {
   const AuthInterceptor({required AuthTokenStore tokenStore})
     : _tokenStore = tokenStore;

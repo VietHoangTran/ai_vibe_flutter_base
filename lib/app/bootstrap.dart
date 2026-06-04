@@ -4,28 +4,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app.dart';
-import '../core/utils/app_logger.dart';
+import '../core/monitoring/crash_reporter.dart';
 
 Future<void> bootstrap() async {
+  // One container shared by the app and the error handlers below, so uncaught
+  // errors reach the same CrashReporter the rest of the app uses.
+  final container = ProviderContainer();
+  final crashReporter = container.read(crashReporterProvider);
+
   await runZonedGuarded<Future<void>>(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+
       FlutterError.onError = (details) {
-        AppLogger.instance.e(
-          'Flutter framework error',
-          error: details.exception,
-          stackTrace: details.stack,
+        unawaited(
+          crashReporter.recordError(
+            details.exception,
+            details.stack,
+            fatal: true,
+          ),
         );
       };
 
-      runApp(const ProviderScope(child: App()));
-    },
-    (Object error, StackTrace stackTrace) {
-      AppLogger.instance.e(
-        'Uncaught zone error',
-        error: error,
-        stackTrace: stackTrace,
+      runApp(
+        UncontrolledProviderScope(
+          container: container,
+          child: const App(),
+        ),
       );
+    },
+    (error, stackTrace) {
+      unawaited(crashReporter.recordError(error, stackTrace, fatal: true));
     },
   );
 }
