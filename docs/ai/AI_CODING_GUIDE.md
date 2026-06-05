@@ -16,6 +16,20 @@ the intended architecture.
 7. Keep generated code generated; do not manually edit `*.g.dart`,
    `*.freezed.dart`, or generated localization files.
 
+## Skills and Agents
+
+Use the project skills when the task matches:
+
+- `/spec` for Normal/High-risk features starting from a raw requirement.
+- `/figma-screen` whenever the UI source is a Figma link.
+- `/figma-tokens` before building from a new design file.
+- `/run-app` for live screenshot proof.
+
+When the harness provides them, run the `flutter-reviewer` agent after
+writing code and the `dart-build-resolver` agent when builds fail. Load the
+`dart-flutter-patterns` / `flutter-testing` skills for non-trivial Riverpod
+or test design questions.
+
 ## Before Editing
 
 Answer these before making changes:

@@ -19,6 +19,9 @@ workflows.
 
 ## New feature
 
+0. For Normal/High-risk scope, start from a spec: use the `/spec` skill to
+   produce `docs/specs/<NNNN>-<slug>.md` (and an API contract when an API is
+   involved), and get it approved before coding.
 1. Classify scope with `docs/ai/FEATURE_INTAKE.md`.
 2. Inspect `lib/features/auth/` as the canonical full-layer reference.
 3. Inspect `lib/features/settings/` for local persistence/preferences patterns.
@@ -53,11 +56,25 @@ workflows.
 ## UI change
 
 1. Keep UI under the feature `presentation/` layer unless it is reusable.
-2. Prefer shared widgets from `lib/shared/widgets/` before creating one-offs.
+2. Check `docs/design/COMPONENT_MAP.md`, then prefer shared widgets from
+   `lib/shared/widgets/` before creating one-offs.
 3. Use theme, spacing, and duration tokens from `lib/core/theme/`.
 4. Localize user-facing text through `context.l10n`.
 5. Add or update widget tests for meaningful states/interactions.
 6. Validate with widget tests or a manual UI proof note plus quality gate.
+
+## UI from a Figma design
+
+1. Use the `/figma-screen` skill — it encodes the full pipeline.
+2. Fetch screenshot + design context for every state frame, not just the
+   happy path.
+3. Map every element through `docs/design/COMPONENT_MAP.md`; never inline hex
+   colors or raw pixel values from the design.
+4. Token missing from `lib/core/theme/`? Run `/figma-tokens` and propose the
+   token first.
+5. Add a golden test plus the Figma reference screenshot under
+   `test/goldens/reference/` (see `test/goldens/README.md`).
+6. Optionally verify live with `/run-app` and attach the screenshot.
 
 ## API integration
 

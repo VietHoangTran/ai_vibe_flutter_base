@@ -109,6 +109,25 @@ context.l10n.someKey
 
 from `lib/core/localization/app_localizations_x.dart`.
 
+## Specs Before Code
+
+For Normal and High-risk features, create a spec under `docs/specs/` from
+`docs/templates/feature-spec.md` (use the `/spec` skill). API work also gets
+`docs/templates/api-contract.md` — generate models from the contract, never
+guess field names.
+
+## Design-to-Code (Figma)
+
+When implementing UI from a design:
+
+1. Consult `docs/design/COMPONENT_MAP.md` first — reuse mapped widgets and
+   tokens; never inline hex colors or raw pixel values from a design file.
+2. Use the `/figma-screen` skill for the full Figma → screen pipeline.
+3. Use the `/figma-tokens` skill to gap-check Figma variables against
+   `lib/core/theme/` before building from a new design file.
+4. Design-critical screens get a golden test (`test/goldens/README.md`) and
+   their Figma reference screenshot under `test/goldens/reference/`.
+
 ## Shared UI
 
 Prefer shared components before introducing one-off UI:
@@ -120,7 +139,8 @@ Prefer shared components before introducing one-off UI:
 - `showAppSnackBar`
 - `OfflineBanner` (wired globally; reacts to `connectivityStatusProvider`)
 
-If a component becomes reusable, put it in `lib/shared/widgets/`.
+If a component becomes reusable, put it in `lib/shared/widgets/` and add a row
+to `docs/design/COMPONENT_MAP.md`.
 
 ## Networking
 
@@ -149,6 +169,25 @@ scripts/quality_check.sh
 ```
 
 If Flutter/Dart is unavailable, report the blocker and include the commands that should be run locally.
+
+A `PostToolUse` hook (`.claude/hooks/dart_format_post.sh`) auto-formats edited
+Dart files, but `scripts/quality_check.sh` remains the gate.
+
+## Agents and Skills
+
+Project-local skills (in `.claude/skills/`):
+
+- `/spec` — turn a raw requirement into a reviewed feature spec.
+- `/figma-screen` — Figma link → Flutter screen pipeline.
+- `/figma-tokens` — Figma variables vs `lib/core/theme/` gap report.
+- `/run-app` — boot simulator/emulator, capture screenshot proof.
+
+When available in the harness, also use:
+
+- `flutter-reviewer` agent after writing/modifying Flutter code.
+- `dart-build-resolver` agent when builds or `dart analyze` fail.
+- `dart-flutter-patterns` and `flutter-testing` skills for non-trivial state
+  management or test design.
 
 ## Doc Freshness
 
