@@ -30,6 +30,24 @@ Human intent
 The canonical read order lives in the "Read Order" section of `AGENTS.md`.
 Start there; this file is the first stop on that list.
 
+## Project Skills
+
+Reusable workflows live in `.claude/skills/` and are invoked as slash
+commands:
+
+| Skill | Purpose |
+| --- | --- |
+| `/spec` | Raw requirement → reviewed feature spec in `docs/specs/` |
+| `/figma-screen` | Figma link → Flutter screen via component map + tokens |
+| `/figma-tokens` | Figma variables vs `lib/core/theme/` gap report |
+| `/run-app` | Boot simulator/emulator and capture screenshot proof |
+
+Supporting artifacts:
+
+- `docs/templates/feature-spec.md`, `docs/templates/api-contract.md`
+- `docs/design/COMPONENT_MAP.md` — Figma ↔ widget/token mapping
+- `test/goldens/` — golden tests plus Figma reference screenshots
+
 ## When to Create a Story
 
 Use `docs/templates/story.md` and save a copy under `docs/stories/` when:
@@ -75,7 +93,8 @@ Enforcement layers:
 
 1. Self-check: `scripts/check_doc_freshness.sh --local`
 2. Claude Code `Stop` hook in `.claude/settings.json` — blocks session
-   completion once when the check fails.
+   completion once when the check fails. A `PostToolUse` hook also
+   auto-formats edited Dart files (`.claude/hooks/dart_format_post.sh`).
 3. `Doc Freshness` CI job in `.github/workflows/flutter_ci.yml` — runs the
    same script against the PR base branch.
 

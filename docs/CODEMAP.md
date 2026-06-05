@@ -181,6 +181,18 @@ numbers in feature UI.
 Prefer shared widgets before creating one-off UI. If a feature-local widget
 becomes reusable, move it to `lib/shared/widgets/`.
 
+## Design-to-code and specs
+
+- `docs/design/COMPONENT_MAP.md` - Figma component ↔ Flutter widget/token map.
+  Consult before writing any UI from a design.
+- `docs/specs/` - approved feature specs and API contracts (templates in
+  `docs/templates/feature-spec.md` and `docs/templates/api-contract.md`).
+- `test/goldens/` - golden tests (`images/`) and Figma reference screenshots
+  (`reference/`); see `test/goldens/README.md`.
+- `integration_test/app_smoke_test.dart` - device boot smoke test.
+- `.claude/skills/` - project skills: `/spec`, `/figma-screen`,
+  `/figma-tokens`, `/run-app`.
+
 ## Reference feature: auth
 
 Use `lib/features/auth/` as the canonical full-layer reference feature.

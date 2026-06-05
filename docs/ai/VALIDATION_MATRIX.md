@@ -10,6 +10,8 @@ Use this matrix to decide what proof is required before completing a task.
 | Feature generator/tooling | CLI dry-run + generator tests + `scripts/quality_check.sh` |
 | UI widget | widget test or manual UI proof note |
 | Page/screen | widget test or manual navigation proof note |
+| Screen built from a Figma design | widget test + golden test + Figma reference screenshot in `test/goldens/reference/` |
+| Design token change (`lib/core/theme/`) | goldens reviewed/updated intentionally + affected screens checked |
 | Riverpod controller | provider test |
 | Use case/domain logic | unit test |
 | Repository/data mapping | unit test with mocktail or fake datasource |
@@ -20,6 +22,7 @@ Use this matrix to decide what proof is required before completing a task.
 | Dependency change | `flutter pub get` + analyze + test |
 | Generated code | `flutter gen-l10n` / `build_runner` rerun |
 | Structural change (add/delete/rename in `lib/core/`, `lib/shared/`, `tools/`, `scripts/`) | doc update + `scripts/check_doc_freshness.sh --local` |
+| App boot / cross-feature flow | `flutter test integration_test -d <device_id>` (device required) or `/run-app` screenshot proof |
 
 ## Standard Quality Gate
 
