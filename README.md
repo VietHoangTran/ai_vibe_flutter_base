@@ -82,6 +82,24 @@ dart run tools/feature_cli.dart profile --dry-run
 dart run tools/feature_cli.dart profile
 ```
 
+### Project skills (Claude Code)
+
+Reusable agent workflows live in `.claude/skills/` and run as slash commands:
+
+| Skill | Purpose |
+| --- | --- |
+| `/spec` | Raw requirement (text/Jira/Figma/image) → reviewed feature spec in `docs/specs/` |
+| `/figma-screen` | Figma link → Flutter screen using `docs/design/COMPONENT_MAP.md` + theme tokens |
+| `/figma-tokens` | Gap report: Figma variables vs `lib/core/theme/` tokens |
+| `/run-app` | Boot simulator/emulator and capture screenshot proof |
+
+Design-to-code references:
+
+- `docs/design/COMPONENT_MAP.md` - Figma component ↔ shared widget/token map
+- `docs/templates/feature-spec.md`, `docs/templates/api-contract.md` - spec templates
+- `test/goldens/README.md` - golden test convention with Figma reference screenshots
+- `integration_test/app_smoke_test.dart` - device boot smoke test (`flutter test integration_test -d <device_id>`)
+
 ## Naming conventions
 
 - Files/folders: `snake_case.dart`
