@@ -47,7 +47,9 @@ Then:
 - Replace generated `TODO(<feature>)` items with real logic.
 - Fill in datasource API/storage logic.
 - Replace placeholder entity/model fields.
-- Add route in `lib/core/routing/app_router.dart` if needed.
+- If you passed `--with-route`, verify the auto-registered route at the
+  `// feature_cli:` anchors; otherwise add the route in
+  `lib/core/routing/app_router.dart` manually.
 - Add all user-facing strings to every ARB file.
 - Add tests based on `docs/ai/VALIDATION_MATRIX.md`.
 - Run codegen when annotations or localization change:

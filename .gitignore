@@ -1,5 +1,10 @@
 # Miscellaneous
-.claude/
+# Keep shared Claude Code project config (settings.json, hooks/) in git;
+# ignore per-machine state.
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
+.claude/settings.local.json
 *.class
 *.log
 *.pyc

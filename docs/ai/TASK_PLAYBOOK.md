@@ -35,7 +35,10 @@ workflows.
    ```
 
 6. Replace generated `TODO(<feature>)` items with real domain/API/storage logic.
-7. Add route entries manually if the feature is navigable.
+7. If the feature is navigable: `--with-route` auto-registers the route in
+   `route_names.dart` and `app_router.dart` at the `// feature_cli:` anchors,
+   so verify the generated entries. Without the flag, add route entries
+   manually.
 8. Add user-facing strings to all ARB files if UI text is shown.
 9. Run codegen when annotations or localization change:
 

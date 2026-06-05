@@ -27,14 +27,8 @@ Human intent
 
 ## Read Order for Agents
 
-1. `AGENTS.md`
-2. `docs/ai/AI_CODING_GUIDE.md`
-3. `docs/ai/TASK_PLAYBOOK.md`
-4. `docs/ai/FEATURE_INTAKE.md`
-5. `docs/ai/VALIDATION_MATRIX.md`
-6. `docs/ai/PATTERNS.md`
-7. `docs/ai/ANTI_PATTERNS.md`
-8. `docs/ai/CHECKLIST.md`
+The canonical read order lives in the "Read Order" section of `AGENTS.md`.
+Start there; this file is the first stop on that list.
 
 ## When to Create a Story
 
@@ -69,3 +63,21 @@ scripts/quality_check.sh
 ```
 
 If a command cannot run, report the exact blocker and the commands that should be run locally.
+
+## Doc Freshness Guard
+
+Docs must not drift from the code. When files are added, deleted, or renamed
+under `lib/core/`, `lib/shared/`, `tools/`, or `scripts/`, update
+`docs/CODEMAP.md` (and `AGENTS.md` or `docs/ai/*` when conventions change) in
+the same change.
+
+Enforcement layers:
+
+1. Self-check: `scripts/check_doc_freshness.sh --local`
+2. Claude Code `Stop` hook in `.claude/settings.json` — blocks session
+   completion once when the check fails.
+3. `Doc Freshness` CI job in `.github/workflows/flutter_ci.yml` — runs the
+   same script against the PR base branch.
+
+The guard only fires on structural changes; in-place edits pass without a doc
+update.

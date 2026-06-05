@@ -19,6 +19,7 @@ Use this matrix to decide what proof is required before completing a task.
 | Native Android/iOS config | platform build command or exact blocker |
 | Dependency change | `flutter pub get` + analyze + test |
 | Generated code | `flutter gen-l10n` / `build_runner` rerun |
+| Structural change (add/delete/rename in `lib/core/`, `lib/shared/`, `tools/`, `scripts/`) | doc update + `scripts/check_doc_freshness.sh --local` |
 
 ## Standard Quality Gate
 

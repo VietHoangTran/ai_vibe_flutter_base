@@ -36,7 +36,8 @@ Required workflow:
 2. Generate the skeleton with guidance flags if useful:
    dart run tools/feature_cli.dart <feature_name> --with-route --with-localization
 3. Replace generated TODO(<feature_name>) items with real logic.
-4. Add route constants and GoRoute manually if navigable.
+4. If navigable: verify the route auto-registered by --with-route, or add
+   route constants and GoRoute manually when the flag was not used.
 5. Add all user-facing strings to app_en.arb, app_vi.arb, and app_ja.arb.
 6. Add tests according to docs/ai/VALIDATION_MATRIX.md.
 7. Run scripts/quality_check.sh.

@@ -4,6 +4,9 @@ This repository is intended to be used heavily by AI coding agents. Follow these
 
 ## Read Order
 
+This is the canonical read order. Other docs link here instead of duplicating
+the list; when adding or renaming AI docs, update only this section.
+
 1. `docs/HARNESS.md`
 2. `docs/ai/AI_CODING_GUIDE.md`
 3. `docs/ai/TASK_PLAYBOOK.md`
@@ -146,6 +149,23 @@ scripts/quality_check.sh
 ```
 
 If Flutter/Dart is unavailable, report the blocker and include the commands that should be run locally.
+
+## Doc Freshness
+
+Structural changes (added/deleted/renamed files under `lib/core/`,
+`lib/shared/`, `tools/`, or `scripts/`) must ship with a doc update —
+usually `docs/CODEMAP.md`, plus `AGENTS.md` or `docs/ai/*` when conventions
+change.
+
+This is enforced in three layers:
+
+- `scripts/check_doc_freshness.sh --local` — run it yourself before finishing.
+- A Claude Code `Stop` hook (`.claude/settings.json`) blocks the session once
+  when the check fails.
+- The `Doc Freshness` CI job runs the same script against the PR base branch.
+
+Pure in-place edits (bug fixes that touch no file structure) do not trigger
+the guard.
 
 ## Do Not Copy From Example Base Blindly
 

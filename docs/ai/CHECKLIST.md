@@ -15,7 +15,8 @@ Before final response, verify:
 - [ ] I updated all supported ARB files when adding localized strings.
 - [ ] I added or updated tests when behavior changed.
 - [ ] I updated docs when adding conventions, tools, scripts, or architecture choices.
-- [ ] I updated read-order references if adding or renaming AI docs.
+- [ ] I ran `scripts/check_doc_freshness.sh --local` if I added, deleted, or renamed files under `lib/core/`, `lib/shared/`, `tools/`, or `scripts/`.
+- [ ] I updated the canonical read order in `AGENTS.md` if adding or renaming AI docs.
 - [ ] I ran `scripts/quality_check.sh` or documented the blocker.
 - [ ] I created a story/decision file if the task required it.
 - [ ] My final summary lists files changed, validation, blockers, and follow-up.

@@ -5,17 +5,8 @@ For rules and policy, `AGENTS.md` and `CLAUDE.md` remain authoritative.
 
 ## Agent rules and read order
 
-Read in this order:
-
-1. `AGENTS.md`
-2. `docs/HARNESS.md`
-3. `docs/ai/AI_CODING_GUIDE.md`
-4. `docs/ai/TASK_PLAYBOOK.md`
-5. `docs/ai/FEATURE_INTAKE.md`
-6. `docs/ai/VALIDATION_MATRIX.md`
-7. `docs/ai/PATTERNS.md`
-8. `docs/ai/ANTI_PATTERNS.md`
-9. `docs/ai/CHECKLIST.md`
+Start with `AGENTS.md`; its "Read Order" section is the canonical list of all
+harness docs.
 
 Non-negotiables:
 
@@ -243,7 +234,9 @@ and app-wide theme/locale wiring.
 1. Run `dart run tools/feature_cli.dart <feature_name> --dry-run`.
 2. Generate with guidance flags if useful.
 3. Replace generated `TODO(<feature>)` items.
-4. Add route and localization manually if needed.
+4. `--with-route` auto-registers the route (verify the anchor edits);
+   without it, wire the route manually. Localization strings always need
+   manual ARB updates.
 5. Add tests by layer.
 6. Run `scripts/quality_check.sh`.
 
@@ -299,6 +292,11 @@ flutter test
 
 If tools are unavailable, report the exact blocker and the local commands a
 human should run.
+
+Doc freshness: when adding, deleting, or renaming files under `lib/core/`,
+`lib/shared/`, `tools/`, or `scripts/`, update this codemap (and other docs as
+relevant) and run `scripts/check_doc_freshness.sh --local`. A Claude Code Stop
+hook and the `Doc Freshness` CI job enforce the same rule.
 
 ## Anti-patterns and approval-required changes
 

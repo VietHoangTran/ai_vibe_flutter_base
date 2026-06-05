@@ -10,6 +10,21 @@ permissions:
   contents: write
 
 jobs:
+  doc-freshness:
+    name: Doc Freshness
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so the merge-base diff against the target branch works.
+          fetch-depth: 0
+
+      - name: Check docs updated alongside structural changes
+        run: scripts/check_doc_freshness.sh --ci "origin/${{ github.base_ref }}"
+
   code-quality:
     name: Code Quality
     runs-on: ubuntu-latest
