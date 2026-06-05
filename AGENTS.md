@@ -112,7 +112,7 @@ Prefer shared components before introducing one-off UI:
 
 - `AppButton`
 - `AppTextField`
-- `AsyncValueView`
+- `AsyncValueView` (localized default error state; pass `onRetry` for a retry button)
 - `DismissKeyboard`
 - `showAppSnackBar`
 - `OfflineBanner` (wired globally; reacts to `connectivityStatusProvider`)

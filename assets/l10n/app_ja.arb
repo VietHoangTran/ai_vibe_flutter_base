@@ -64,5 +64,7 @@
   "signOutConfirmTitle": "サインアウトしますか？",
   "signOutConfirmBody": "続けるには再度ログインが必要です。",
   "cancel": "キャンセル",
-  "offlineMessage": "インターネット接続がありません"
+  "offlineMessage": "インターネット接続がありません",
+  "errorGeneric": "問題が発生しました",
+  "retry": "再試行"
 }

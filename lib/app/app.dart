@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/config/app_config.dart';
 import '../core/routing/app_router.dart';
+import '../core/services/app_update_service.dart';
 import '../core/theme/app_theme.dart';
 import '../features/settings/domain/entities/app_settings.dart';
 import '../features/settings/presentation/controllers/settings_controller.dart';
@@ -32,7 +33,14 @@ class App extends ConsumerWidget {
       builder: (context, child) => Column(
         children: [
           const OfflineBanner(),
-          Expanded(child: child ?? const SizedBox.shrink()),
+          Expanded(
+            child: ref
+                .watch(appUpdateServiceProvider)
+                .wrapWithUpgradeAlert(
+                  navigatorKey: router.routerDelegate.navigatorKey,
+                  child: child ?? const SizedBox.shrink(),
+                ),
+          ),
         ],
       ),
     );

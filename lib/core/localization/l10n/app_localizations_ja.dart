@@ -165,4 +165,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get offlineMessage => 'インターネット接続がありません';
+
+  @override
+  String get errorGeneric => '問題が発生しました';
+
+  @override
+  String get retry => '再試行';
 }

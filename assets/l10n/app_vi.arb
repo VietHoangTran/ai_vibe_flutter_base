@@ -64,5 +64,7 @@
   "signOutConfirmTitle": "Đăng xuất?",
   "signOutConfirmBody": "Bạn sẽ cần đăng nhập lại để tiếp tục.",
   "cancel": "Hủy",
-  "offlineMessage": "Không có kết nối internet"
+  "offlineMessage": "Không có kết nối internet",
+  "errorGeneric": "Đã có lỗi xảy ra",
+  "retry": "Thử lại"
 }

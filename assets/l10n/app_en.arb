@@ -64,5 +64,7 @@
   "signOutConfirmTitle": "Sign out?",
   "signOutConfirmBody": "You'll need to sign in again to continue.",
   "cancel": "Cancel",
-  "offlineMessage": "No internet connection"
+  "offlineMessage": "No internet connection",
+  "errorGeneric": "Something went wrong",
+  "retry": "Retry"
 }

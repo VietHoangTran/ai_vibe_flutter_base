@@ -588,6 +588,7 @@ $localizationTodo      appBar: AppBar(title: const Text('$className')),
       body: AsyncValueView(
         value: state,
         data: ${className}Content.new,
+        onRetry: ref.read(${camelName}ControllerProvider.notifier).refresh,
       ),
     );
   }

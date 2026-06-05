@@ -166,4 +166,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get offlineMessage => 'Không có kết nối internet';
+
+  @override
+  String get errorGeneric => 'Đã có lỗi xảy ra';
+
+  @override
+  String get retry => 'Thử lại';
 }

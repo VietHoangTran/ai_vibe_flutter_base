@@ -166,4 +166,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get offlineMessage => 'No internet connection';
+
+  @override
+  String get errorGeneric => 'Something went wrong';
+
+  @override
+  String get retry => 'Retry';
 }
