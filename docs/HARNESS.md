@@ -47,6 +47,9 @@ Use `docs/templates/story.md` and save a copy under `docs/stories/` when:
 
 Tiny tasks do not need story files.
 
+See `docs/stories/0001-example-auth-token-loop.md` for a worked example of
+the expected level of detail.
+
 ## When to Create a Decision
 
 Use `docs/templates/decision.md` and save a copy under `docs/decisions/` when:
