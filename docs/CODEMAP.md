@@ -299,8 +299,13 @@ flutter pub get
 scripts/generate.sh
 dart format --set-exit-if-changed .
 dart analyze --fatal-infos --fatal-warnings
-flutter test
+flutter test --coverage
+scripts/check_coverage.sh
 ```
+
+Coverage gate: `scripts/check_coverage.sh` fails when line coverage of
+non-generated `lib/` code drops below the threshold (baseline 65%, long-term
+target 80% for business logic). CI runs the same gate in the Code Quality job.
 
 If tools are unavailable, report the exact blocker and the local commands a
 human should run.

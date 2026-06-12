@@ -24,7 +24,7 @@ dart run tools/feature_cli.dart profile --with-route --with-localization
 | --- | --- |
 | `--dry-run` | Prints files that would be created without writing them. |
 | `--force` | Overwrites existing generated target files. Use carefully. |
-| `--with-route` | Prints suggested `RouteNames` and `GoRoute` snippets. It does not edit router files. |
+| `--with-route` | Auto-registers the route: edits `lib/core/routing/route_names.dart` and `lib/core/routing/app_router.dart` at the `// feature_cli:` anchor comments. Re-running is idempotent; if an anchor is missing or the route already exists, the edit is skipped with a warning. With `--dry-run` it only prints what would be registered. Run `build_runner` afterwards so `app_router.g.dart` picks up the route. |
 | `--with-localization` | Adds compile-safe TODO guidance for replacing the title with `context.l10n.<feature>Title` after ARB keys exist, and prints ARB keys to add. It does not edit ARB files or generate code that depends on missing l10n getters. |
 | `--with-story` | Prints story creation guidance for multi-layer or handoff-heavy work. |
 
@@ -77,7 +77,8 @@ Use `lib/features/auth/` as the canonical full-layer reference feature. Use
 1. Replace generated `TODO(<feature>)` items.
 2. Replace placeholder entity/model fields.
 3. Replace placeholder API endpoint or swap in local storage logic when needed.
-4. Add route manually if the feature has a page.
+4. If you did not pass `--with-route`, register the route manually (or re-run
+   the generator with `--with-route`; route edits are idempotent).
 5. Add localization keys manually if the feature shows UI text.
 6. Run codegen:
 
@@ -109,5 +110,7 @@ dart run tools/feature_cli.dart sample_feature --dry-run
 dart run tools/feature_cli.dart sample_feature --dry-run --with-route --with-localization --with-story
 ```
 
-The generator must not manually edit generated files, router files, ARB files,
-or story files. It prints required follow-up steps instead.
+The generator must not edit generated files (`*.g.dart`), ARB files, or story
+files — it prints follow-up steps for those. The only files it may edit are
+`route_names.dart` and `app_router.dart`, and only at the `// feature_cli:`
+anchor comments when `--with-route` is passed.

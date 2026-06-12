@@ -58,7 +58,10 @@ jobs:
         run: dart analyze --fatal-infos --fatal-warnings
 
       - name: Test
-        run: flutter test
+        run: flutter test --coverage
+
+      - name: Coverage gate
+        run: scripts/check_coverage.sh
 
   build-android:
     name: Build Android APK
